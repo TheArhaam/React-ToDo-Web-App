@@ -1,13 +1,17 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './App.css';
-import './Login.js';
+import Login from './Login';
 
-function App() {
-  return (
-    <div className="App">
-      <Login />
-    </div>
-  );
+
+class App extends Component {
+  render() {
+    return (
+      <div className="App">
+        <h1>TO-DO Web Application</h1>
+        <Login />
+      </div>
+    );
+  }
 }
 
 export default App;
