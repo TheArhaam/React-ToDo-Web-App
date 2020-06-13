@@ -1,47 +1,57 @@
-import React, { Component } from 'react';
-import './App.css';
+// CONTAINS THE LOGIN COMPONENT
+
+import React, { useCallback, useContext } from 'react'
+import { withRouter, Redirect } from "react-router"
+import { Link } from "react-router-dom"
+import fireb from './FirebaseConfig'
+import { AuthContext } from "./Auth.js"
+import './App.css'
 
 
-class Login extends Component {
+const Login = ({ history }) => {
+    const handleLogin = useCallback(
+        async event => {
+            event.preventDefault();
+            const { email, password } = event.target.elements;
+            try {
+                await fireb
+                    .auth()
+                    .signInWithEmailAndPassword(email.value, password.value);
+                history.push("/");
+            } catch (error) {
+                alert(error);
+            }
+        },
+        [history]
+    );
 
-    constructor(props) {
-        super(props);
+    const { currentUser } = useContext(AuthContext);
 
-        this.state = {
-            username: "",
-            password: ""
-        };
-
-        this.updateState = this.updateState.bind(this);
+    if (currentUser) {
+        return <Redirect to="/" />;
     }
-
-    updateState(e) {
-        let nam = e.target.name;
-        let val = e.target.value;
-        this.setState({ [nam]: val });
-        console.log(this.state.username);
-    }
-
-    render() {
-        return (
-            <div className="Login">
-                <p style={{"font-size": "30px", "fontWeight": "bolder"}}>LOGIN</p>
+    return (
+        <div className="Login">
+            <p style={{ "font-size": "30px", "fontWeight": "bolder" }}>LOGIN</p>
+            <form onSubmit={handleLogin}>
                 <table>
                     <tr>
-                        <td>Username:</td>
-                        <td><input type="text" name = "username" value={this.state.username} onChange={this.updateState} /></td>
+                        <td>Email:</td>
+                        <td><input type="text" name="email" /></td>
                     </tr>
                     <tr>
                         <td>Password:</td>
-                        <td><input type="password" name="password" id="" value={this.state.password} onChange={this.updateState} /></td>
+                        <td><input type="password" name="password" /></td>
                     </tr>
                     <tr>
-                        <td colSpan="2" style={{"text-align":"center"}}><input type="submit" value="LOGIN" /></td>
+                        <td colSpan="2" style={{ "text-align": "center" }}><input type="submit" value="LOGIN" /></td>
+                    </tr>
+                    <tr>
+                        <td colSpan="2" style={{ "text-align": "center" }}>New User? <Link to="/Register">Register now.</Link> </td>
                     </tr>
                 </table>
-            </div>
-        );
-    }
+            </form>
+        </div>
+    );
 }
-
-export default Login;
+export default withRouter(Login);
