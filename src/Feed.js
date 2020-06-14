@@ -11,18 +11,14 @@ class Feed extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            todolists: [
-                { id: 1, name: 'College Work' },
-                { id: 2, name: 'Household Work' },
-                { id: 3, name: 'Miscellaneous' },
-            ]
+            todolists: []
         }
         this.addNewList = this.addNewList.bind(this);
     }
 
     addNewList = (e) => {
         e.preventDefault(); //PREVENTING BROWSER FROM REFRESHING THE PAGE AND LOSING DATA
-        const listName  = e.target.elements.ListName.value;
+        const listName = e.target.elements.ListName.value;
         const oldList = this.state.todolists;
         oldList.push({ id: oldList.length + 1, name: listName })
         this.setState({

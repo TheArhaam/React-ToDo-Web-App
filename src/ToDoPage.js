@@ -8,26 +8,21 @@ class ToDoPage extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            todos: [
-                { id: 1, text: 'IS Assignment', done: false },
-                { id: 2, text: 'WebSOA Assignment', done: true },
-                { id: 3, text: 'Java Assignment', done: false },
-                { id: 4, text: 'DS Assignment', done: false }
-            ]
+            todos: []
         }
         this.addNewToDo = this.addNewToDo.bind(this)
     }
 
     addNewToDo = (e) => {
         e.preventDefault(); //PREVENTING BROWSER FROM REFRESHING THE PAGE AND LOSING DATA
-        const toDoText  = e.target.elements.ToDoText.value;
+        const toDoText = e.target.elements.ToDoText.value;
         const oldList = this.state.todos;
         oldList.push({ id: oldList.length + 1, text: toDoText })
         this.setState({
             todolists: oldList
         });
     }
- 
+
     render() {
         return (
             <div>
