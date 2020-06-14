@@ -13,7 +13,7 @@ class ToDo extends Component {
     }
 
     handleCheckChange = (e) => {
-        if (this.state.checkedVal == true) {
+        if (this.state.checkedVal === true) {
             this.setState({
                 doneStyle: {},
                 checkedVal: !this.state.checkedVal

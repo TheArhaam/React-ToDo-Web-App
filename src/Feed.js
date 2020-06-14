@@ -17,9 +17,21 @@ class Feed extends Component {
                 { id: 3, name: 'Miscellaneous' },
             ]
         }
+        this.addNewList = this.addNewList.bind(this);
+    }
+
+    addNewList = (e) => {
+        e.preventDefault(); //PREVENTING BROWSER FROM REFRESHING THE PAGE AND LOSING DATA
+        const listName  = e.target.elements.ListName.value;
+        const oldList = this.state.todolists;
+        oldList.push({ id: oldList.length + 1, name: listName })
+        this.setState({
+            todolists: oldList
+        });
     }
 
     render() {
+        console.log(this.state.todolists)
         return (
             <div>
                 <h1>TO-DO LIST</h1>
@@ -27,10 +39,14 @@ class Feed extends Component {
                 {
                     this.state.todolists.map((todolist) => {
                         return (
-                                    <ToDoList id={todolist.id} name={todolist.name} />
+                            <ToDoList id={todolist.id} name={todolist.name} />
                         );
                     })
                 }
+                <form onSubmit={this.addNewList}>
+                    <input type="text" name="ListName" id="ListName" placeholder="Enter new list name..." />
+                    <button type="submit">New To-Do List</button>
+                </form>
             </div>
         );
     }
