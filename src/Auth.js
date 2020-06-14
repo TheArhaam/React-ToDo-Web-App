@@ -14,6 +14,7 @@ export const AuthProvider = ({ children }) => {
         fireb.auth().onAuthStateChanged((user) => {
             setCurrentUser(user)
             setPending(false)
+            console.log(user.email)
         });
     }, []);
 
