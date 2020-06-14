@@ -31,11 +31,12 @@ class Feed extends Component {
     }
 
     render() {
-        console.log(this.state.todolists)
         return (
             <div>
                 <h1>TO-DO LIST</h1>
+                {/* FOR SIGNING OUT */}
                 <button onClick={() => { fireb.auth().signOut() }}>Sign Out</button>
+                {/* TO DISPLAY THE todolists */}
                 {
                     this.state.todolists.map((todolist) => {
                         return (
@@ -43,6 +44,7 @@ class Feed extends Component {
                         );
                     })
                 }
+                {/* For adding new To-Do List */}
                 <form onSubmit={this.addNewList}>
                     <input type="text" name="ListName" id="ListName" placeholder="Enter new list name..." />
                     <button type="submit">New To-Do List</button>

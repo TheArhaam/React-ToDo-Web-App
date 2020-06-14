@@ -15,8 +15,19 @@ class ToDoPage extends Component {
                 { id: 4, text: 'DS Assignment', done: false }
             ]
         }
+        this.addNewToDo = this.addNewToDo.bind(this)
     }
 
+    addNewToDo = (e) => {
+        e.preventDefault(); //PREVENTING BROWSER FROM REFRESHING THE PAGE AND LOSING DATA
+        const toDoText  = e.target.elements.ToDoText.value;
+        const oldList = this.state.todos;
+        oldList.push({ id: oldList.length + 1, text: toDoText })
+        this.setState({
+            todolists: oldList
+        });
+    }
+ 
     render() {
         return (
             <div>
@@ -29,6 +40,11 @@ class ToDoPage extends Component {
                         );
                     })
                 }
+                {/* For adding new To-Do */}
+                <form onSubmit={this.addNewToDo}>
+                    <input type="text" name="ToDoText" id="ToDoText" placeholder="Enter new To-Do..." />
+                    <button type="submit">New To-Do</button>
+                </form>
             </div>
         );
     }
