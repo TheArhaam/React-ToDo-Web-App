@@ -2,7 +2,6 @@
 // FEED CONSISTS OF TO-DO LISTS
 
 import React, { Component } from 'react'
-import { Link } from "react-router-dom"
 import ToDoList from './ToDoList'
 import fireb from './FirebaseConfig'
 
@@ -28,11 +27,7 @@ class Feed extends Component {
                 {
                     this.state.todolists.map((todolist) => {
                         return (
-                            <Link to='/ToDoPage'>
-                                <div >
                                     <ToDoList id={todolist.id} name={todolist.name} />
-                                </div>
-                            </Link>
                         );
                     })
                 }

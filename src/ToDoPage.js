@@ -9,10 +9,10 @@ class ToDoPage extends Component {
         super(props);
         this.state = {
             todos: [
-                { id: 1, text: 'IS Assignment', done: false},
-                { id: 2, text: 'WebSOA Assignment', done: true},
-                { id: 3, text: 'Java Assignment', done: false},
-                { id: 4, text: 'DS Assignment', done: false}
+                { id: 1, text: 'IS Assignment', done: false },
+                { id: 2, text: 'WebSOA Assignment', done: true },
+                { id: 3, text: 'Java Assignment', done: false },
+                { id: 4, text: 'DS Assignment', done: false }
             ]
         }
     }
@@ -20,6 +20,8 @@ class ToDoPage extends Component {
     render() {
         return (
             <div>
+
+                <h2>{this.props.match.params.listid} {this.props.location.listname}</h2>
                 {
                     this.state.todos.map((todo) => {
                         return (

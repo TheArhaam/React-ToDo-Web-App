@@ -20,7 +20,7 @@ class App extends Component {
             <PrivateRoute exact path='/' component={Feed} />
             <Route exact path='/Login' component={Login} />
             <Route exact path='/Register' component={Register} />
-            <Route exact path='/ToDoPage' component={ToDoPage} />
+            <Route exact path='/ToDoPage/:listid' component={ToDoPage} />
           </div>
         </Router>
       </AuthProvider>
