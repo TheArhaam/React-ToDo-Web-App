@@ -6,6 +6,7 @@ import Feed from './Feed'
 import { BrowserRouter as Router, Route } from "react-router-dom"
 import { AuthProvider } from './Auth';
 import PrivateRoute from './PrivateRoute';
+import ToDoPage from './ToDoPage';
 
 
 class App extends Component {
@@ -19,6 +20,7 @@ class App extends Component {
             <PrivateRoute exact path='/' component={Feed} />
             <Route exact path='/Login' component={Login} />
             <Route exact path='/Register' component={Register} />
+            <Route exact path='/ToDoPage' component={ToDoPage} />
           </div>
         </Router>
       </AuthProvider>
