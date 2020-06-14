@@ -23,7 +23,7 @@ class Feed extends Component {
     render() {
         return (
             <div>
-                {/* <h1>TO-DO WEB APPLICATION</h1> */}
+                <h1>TO-DO LIST</h1>
                 <button onClick={() => { fireb.auth().signOut() }}>Sign Out</button>
                 {
                     this.state.todolists.map((todolist) => {

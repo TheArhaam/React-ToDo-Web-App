@@ -9,10 +9,10 @@ class ToDoPage extends Component {
         super(props);
         this.state = {
             todos: [
-                { id: 1, text: 'IS Assignment' },
-                { id: 2, text: 'WebSOA Assignment' },
-                { id: 3, text: 'Java Assignment' },
-                { id: 4, text: 'DS Assignment' }
+                { id: 1, text: 'IS Assignment', done: false},
+                { id: 2, text: 'WebSOA Assignment', done: true},
+                { id: 3, text: 'Java Assignment', done: false},
+                { id: 4, text: 'DS Assignment', done: false}
             ]
         }
     }
@@ -23,7 +23,7 @@ class ToDoPage extends Component {
                 {
                     this.state.todos.map((todo) => {
                         return (
-                            <ToDo id={todo.id} text={todo.text} />
+                            <ToDo id={todo.id} text={todo.text} done={todo.done} />
                         );
                     })
                 }
