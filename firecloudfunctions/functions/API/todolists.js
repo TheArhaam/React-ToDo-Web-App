@@ -34,9 +34,8 @@ exports.getToDoLists = (request, response) => {
             todolists = []
             snapshot.forEach((element) => {
                 todolists.push({
-                    id: element.val().id,
+                    id: element.key,
                     name: element.val().name,
-                    addedTime: element.val().addedTime
                 })
             });
             return response.json(todolists);

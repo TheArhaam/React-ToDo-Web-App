@@ -21,3 +21,35 @@ exports.postToDo = (request, response) => {
 
     response.send('ToDo added');
 }
+
+// TO GET TODOS
+exports.getToDos = (request, response) => {
+    var uid = request.query.uid;
+    var listid = request.query.listid;
+
+    firedb.ref()
+        .child('Users')
+        .child(uid)
+        .child('todolists')
+        .child(listid)
+        .child('todos')
+        .orderByChild('addedTime')
+        .once('value')
+        .then((snapshot) => {
+            todos = []
+            snapshot.forEach((element) => {
+                console.log('element key' + element.key);
+                console.log('element name' + element.val().name);
+                console.log('element addedTime' + element.val().addedTime);
+                todos.push({
+                    id: element.key,
+                    text: element.val().text,
+                })
+            });
+            return response.json(todos);
+        })
+        .catch((err) => {
+            // console.log(err);
+            response.send('Error: ' + err);
+        });
+}
