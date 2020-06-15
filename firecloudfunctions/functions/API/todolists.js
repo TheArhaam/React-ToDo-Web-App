@@ -71,8 +71,8 @@ exports.editToDoList = (request, response) => {
 
 // TO DELETE TODO LIST
 exports.deleteToDoList = (request, response) => {
-    var uid = request.query.uid;
-    var id = request.query.id;
+    var uid = request.body.uid;
+    var id = request.body.id;
 
     firedb.ref()
         .child('Users')

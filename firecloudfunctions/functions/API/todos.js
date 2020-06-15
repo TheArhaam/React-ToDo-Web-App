@@ -74,3 +74,23 @@ exports.editToDo = (request, response) => {
 
     response.send('ToDo Updated');
 }
+
+// TO DELETE TODO
+exports.deleteToDo = (request, response) => {
+    var uid = request.body.uid;
+    var listid = request.body.listid;
+    var todoid = request.body.todoid;
+
+    
+    firedb.ref()
+        .child('Users')
+        .child(uid)
+        .child('todolists')
+        .child(listid)
+        .child('todos')
+        .child(todoid)
+        .remove()
+        .catch((err) => { response.send('Error: ' + err) });
+
+    response.send('ToDo Deleted');
+}
