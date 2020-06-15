@@ -45,3 +45,22 @@ exports.postToDoList = (request, response) => {
 
     response.send('ToDoList added');
 }
+
+// TO DELETE TODO LIST
+exports.deleteToDoList = (request, response) => {
+    var uid = request.query.uid;
+    var id = request.query.id;
+
+    db.ref()
+        .child('Users')
+        .child(uid)
+        .child('todolists')
+        .child(id)
+        .remove()
+        .catch((err) => {
+            // console.log(err);
+            response.send('Error: ' + err);
+        });
+
+    response.send('List Deleted');
+}
