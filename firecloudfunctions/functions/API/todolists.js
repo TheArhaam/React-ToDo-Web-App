@@ -2,12 +2,30 @@ const { db } = require('./admin')
 
 // TO GET TODO LISTS
 exports.getToDoLists = (request, response) => {
-    var uid = request.body.uid;
+    var uid = request.query.uid;
 
-    todolists = []
+    db.ref()
+        .child('Users')
+        .child(uid)
+        .child('todolists')
+        // .orderByValue('addedTime', 'desc')
+        .once('value')
+        .then((snapshot) => {
+            todolists = []
+            snapshot.forEach((element) => {
+                todolists.push({
+                    id: element.val().id,
+                    name: element.val().name,
+                    addedTime: element.val().addedTime
+                })
+            });
+            return response.json(todolists);
+        })
+        .catch((err) => {
+            // console.log(err);
+            response.send('Error: ' + err);
+        });
 
-    db.ref().child('Users').child(uid)
-    return response.json(todolists);
 }
 
 // TO ADD NEW TODOLIST
