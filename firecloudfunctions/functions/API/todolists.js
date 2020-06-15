@@ -8,7 +8,7 @@ exports.getToDoLists = (request, response) => {
         .child('Users')
         .child(uid)
         .child('todolists')
-        // .orderByValue('addedTime', 'desc')
+        .orderByChild('addedTime')
         .once('value')
         .then((snapshot) => {
             todolists = []
