@@ -2,6 +2,6 @@ const admin = require('firebase-admin');
 
 admin.initializeApp();
 
-const db = admin.database();
+const firedb = admin.database();
 
-module.exports = { admin, db };
+module.exports = { admin, firedb };

@@ -1,10 +1,11 @@
-const { db } = require('./admin')
+// FOR USER
+const { firedb } = require('./admin')
 
 // FOR REGISTERING A NEW USER
 exports.postNewUser = (request, response) => {
     var uid = String(request.body.uid);
 
-    db.ref()
+    firedb.ref()
         .child('Users')
         .child(uid)
         .set({ todolists: 'null' })

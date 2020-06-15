@@ -1,10 +1,30 @@
-const { db } = require('./admin')
+// FOR TODOLISTS
+const { firedb } = require('./admin')
+
+
+// TO ADD NEW TODOLIST
+exports.postToDoList = (request, response) => {
+    var uid = request.body.uid;
+    var id = request.body.id;
+    var name = request.body.name;
+    var addedTime = new Date().toISOString();
+
+    firedb.ref()
+        .child('Users')
+        .child(uid)
+        .child('todolists')
+        .child(id)
+        .set({ name: name, addedTime: addedTime ,todos: 'null'})
+        .catch((err) => { response.send('Error: ' + err) });
+
+    response.send('ToDoList added');
+}
 
 // TO GET TODO LISTS
 exports.getToDoLists = (request, response) => {
     var uid = request.query.uid;
 
-    db.ref()
+    firedb.ref()
         .child('Users')
         .child(uid)
         .child('todolists')
@@ -28,42 +48,6 @@ exports.getToDoLists = (request, response) => {
 
 }
 
-// TO ADD NEW TODOLIST
-exports.postToDoList = (request, response) => {
-    var uid = request.body.uid;
-    var id = request.body.id;
-    var name = request.body.name;
-    var addedTime = new Date().toISOString();
-
-    db.ref()
-        .child('Users')
-        .child(uid)
-        .child('todolists')
-        .child(id)
-        .set({ name: name, addedTime: addedTime })
-        .catch((err) => { response.send('Error: ' + err) });
-
-    response.send('ToDoList added');
-}
-
-// TO DELETE TODO LIST
-exports.deleteToDoList = (request, response) => {
-    var uid = request.query.uid;
-    var id = request.query.id;
-
-    db.ref()
-        .child('Users')
-        .child(uid)
-        .child('todolists')
-        .child(id)
-        .remove()
-        .catch((err) => {
-            // console.log(err);
-            response.send('Error: ' + err);
-        });
-
-    response.send('List Deleted');
-}
 
 // TO EDIT TODOLIST
 exports.editToDoList = (request, response) => {
@@ -71,7 +55,7 @@ exports.editToDoList = (request, response) => {
     var id = request.body.id;
     var name = request.body.name;
 
-    db.ref()
+    firedb.ref()
         .child('Users')
         .child(uid)
         .child('todolists')
@@ -84,4 +68,23 @@ exports.editToDoList = (request, response) => {
         });
 
     response.send('List Updated');
+}
+
+// TO DELETE TODO LIST
+exports.deleteToDoList = (request, response) => {
+    var uid = request.query.uid;
+    var id = request.query.id;
+
+    firedb.ref()
+        .child('Users')
+        .child(uid)
+        .child('todolists')
+        .child(id)
+        .remove()
+        .catch((err) => {
+            // console.log(err);
+            response.send('Error: ' + err);
+        });
+
+    response.send('List Deleted');
 }
