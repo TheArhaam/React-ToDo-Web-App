@@ -1,7 +1,7 @@
 const functions = require('firebase-functions');
 const app = require('express')();
 const { getToDoLists, postToDoList, deleteToDoList, editToDoList } = require('./API/todolists')
-const { postToDo, getToDos } = require('./API/todos')
+const { postToDo, getToDos, editToDo } = require('./API/todos')
 const { postNewUser } = require('./API/user')
 
 // RETURN JSON RESPONSES IF YOU HAVE PROBLEMS
@@ -21,6 +21,7 @@ app.delete('/todolists', deleteToDoList);
 // FOR TODOS
 app.post('/todos', postToDo);
 app.get('/todos', getToDos);
+app.post('/todos/:todoid',editToDo);
 
 
 exports.api = functions.https.onRequest(app);

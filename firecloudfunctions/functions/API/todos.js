@@ -53,3 +53,24 @@ exports.getToDos = (request, response) => {
             response.send('Error: ' + err);
         });
 }
+
+// TO EDIT TODO
+exports.editToDo = (request, response) => {
+    var uid = request.body.uid;
+    var listid = request.body.listid;
+    var todoid = request.body.todoid;
+    var text = request.body.text;
+
+    firedb.ref()
+        .child('Users')
+        .child(uid)
+        .child('todolists')
+        .child(listid)
+        .child('todos')
+        .child(todoid)
+        .child('text')
+        .set(text)
+        .catch((err) => { response.send('Error: ' + err) });
+
+    response.send('ToDo Updated');
+}
