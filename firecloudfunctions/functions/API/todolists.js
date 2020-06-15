@@ -2,12 +2,11 @@ const { db } = require('./admin')
 
 // TO GET TODO LISTS
 exports.getToDoLists = (request, response) => {
-    todolists = [
-        { 'id': '1', 'name': 'College work' },
-        { 'id': '2', 'name': 'House work' },
-        { 'id': '3', 'name': 'Workout' },
-    ]
+    var uid = request.body.uid;
 
+    todolists = []
+
+    db.ref().child('Users').child(uid)
     return response.json(todolists);
 }
 
@@ -16,7 +15,7 @@ exports.postToDoList = (request, response) => {
     var uid = request.body.uid;
     var id = request.body.id;
     var name = request.body.name;
-    var addedTime = request.body.addedTime;
+    var addedTime = new Date().toISOString();
 
     db.ref()
         .child('Users')
