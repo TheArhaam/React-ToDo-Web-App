@@ -8,7 +8,7 @@ exports.auth = (request, response, next) => {
         console.log('iDToken: '+idToken);
     } else {
         console.error('No token found');
-        return response.status(403).json({ error: 'Unauthorized' });
+        return response.json({ error: 'Unauthorized' });
     }
 
     admin
@@ -27,8 +27,8 @@ exports.auth = (request, response, next) => {
         })
         .catch((err) => {
             console.error('Error while verifying token', err);
-            return response.status(403).json(err);
+            return response.json(err);
         });
 
-    return response.send("AUTH DONE");
+    // return response.send("AUTH DONE");
 };

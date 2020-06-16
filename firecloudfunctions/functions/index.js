@@ -7,23 +7,24 @@ const { auth } = require('./util/auth')
 
 // RETURN JSON RESPONSES IF YOU HAVE PROBLEMS
 // WITH THE RESPONSE LATER
+// FIX THE RESPONSES
 
 // FOR USER
 app.post('/user/new', postNewUser);
 app.post('/user/existing',postExistingUser);
 
 // FOR TODOLISTS
-app.post('/todolists', postToDoList);
-app.get('/todolists', getToDoLists);
-app.post('/todolists/:listId', editToDoList);
-app.delete('/todolists', deleteToDoList);
+app.post('/todolists', auth, postToDoList);
+app.get('/todolists', auth, getToDoLists);
+app.post('/todolists/:listId', auth, editToDoList);
+app.delete('/todolists', auth, deleteToDoList);
 // Use this if you have problems calling the API from reactjs
 // app.delete('/todolists/:toDoListId',deleteToDoList); 
 
 // FOR TODOS
-app.post('/todos', postToDo);
-app.get('/todos', getToDos);
-app.post('/todos/:todoid', editToDo);
-app.delete('/todos', deleteToDo)
+app.post('/todos', auth, postToDo);
+app.get('/todos', auth, getToDos);
+app.post('/todos/:todoid', auth, editToDo);
+app.delete('/todos', auth, deleteToDo)
 
 exports.api = functions.https.onRequest(app);

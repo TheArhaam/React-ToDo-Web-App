@@ -41,14 +41,16 @@ exports.postNewUser = (request, response) => {
 exports.postExistingUser = (request, response) => {
     var email = request.body.email;
     var password = request.body.pass;
+    var uid;
 
     firebase.auth()
         .signInWithEmailAndPassword(email, password)
         .then((data) => {
+            uid = data.user.uid;
             return data.user.getIdToken();
         })
         .then((token) => {
-            return response.json({ token });
+            return response.json({ token, uid });
         })
         .catch((error) => {
             console.error(error);
