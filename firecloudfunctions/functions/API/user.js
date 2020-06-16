@@ -9,9 +9,9 @@ exports.postNewUser = (request, response) => {
     var email = request.body.email;
     var password = request.body.pass;
     var token, uid;
-    // console.log("POST NEW USER");
-    // console.log("email: " + email);
-    // console.log("password: " + password);
+    console.log("POST NEW USER");
+    console.log("email: " + email);
+    console.log("password: " + password);
 
     firebase.auth()
         .createUserWithEmailAndPassword(email, password)
@@ -32,7 +32,13 @@ exports.postNewUser = (request, response) => {
         .then(() => {
             return response.json({ token });
         })
-        .catch((err) => { response.send(err) });
+        .catch((err) => {
+            if (err.code === 'auth/email-already-in-use') {
+                return response.status(400).json({ message: 'Email already in use' });
+            } else {
+                return response.status(500).json({ message: 'Something went wrong, please try again' });
+            }
+        });
 
     // response.send('User added');
 }

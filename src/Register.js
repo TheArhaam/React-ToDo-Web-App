@@ -3,18 +3,36 @@
 import React, { useCallback } from "react";
 import { withRouter } from "react-router";
 import fireb from './FirebaseConfig'
+import axios from 'axios'
+// axios.defaults.baseURL = 'https://us-central1-todo-5cda6.cloudfunctions.net/api';
 
 const Register = ({ history }) => {
+
     const handleRegistration = useCallback(async event => {
         event.preventDefault();
         const { email, password } = event.target.elements;
+        const newUser = {
+            email: email.value,
+            pass: password.value
+        }
         try {
-            await fireb
-                .auth()
-                .createUserWithEmailAndPassword(email.value, password.value);
-            history.push("/");
+            // await fireb
+            //     .auth()
+            //     .createUserWithEmailAndPassword(email.value, password.value);
+            // history.push("/");
+
+            // CREATING NEW USER 
+            await axios.post('https://us-central1-todo-5cda6.cloudfunctions.net/api/user/new', newUser)
+                .then((response) => {
+                    console.log(response);
+                    // LOGGING IN AS NEW USER TO UPDATE currentUser
+                    fireb
+                        .auth()
+                        .signInWithEmailAndPassword(email.value, password.value);
+                    history.push("/");
+                })
         } catch (error) {
-            alert(error);
+            alert(error.response.data.message);
         }
     }, [history]);
 
