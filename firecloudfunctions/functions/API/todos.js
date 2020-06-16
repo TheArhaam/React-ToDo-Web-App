@@ -1,5 +1,5 @@
 // FOR TODOS
-const { firedb } = require('./admin')
+const { firedb } = require('../util/admin')
 
 // TO ADD NEW TODO
 exports.postToDo = (request, response) => {
@@ -8,6 +8,8 @@ exports.postToDo = (request, response) => {
     var todoid = request.body.todoid;
     var text = request.body.text;
     var addedTime = new Date().toISOString();
+
+    console.log(request.user.username);
 
     firedb.ref()
         .child('Users')

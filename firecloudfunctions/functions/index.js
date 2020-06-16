@@ -2,13 +2,15 @@ const functions = require('firebase-functions');
 const app = require('express')();
 const { getToDoLists, postToDoList, editToDoList, deleteToDoList } = require('./API/todolists')
 const { postToDo, getToDos, editToDo, deleteToDo } = require('./API/todos')
-const { postNewUser } = require('./API/user')
+const { postNewUser, postExistingUser } = require('./API/user')
+const { auth } = require('./util/auth')
 
 // RETURN JSON RESPONSES IF YOU HAVE PROBLEMS
 // WITH THE RESPONSE LATER
 
 // FOR USER
-app.post('/user', postNewUser);
+app.post('/user/new', postNewUser);
+app.post('/user/existing',postExistingUser);
 
 // FOR TODOLISTS
 app.post('/todolists', postToDoList);

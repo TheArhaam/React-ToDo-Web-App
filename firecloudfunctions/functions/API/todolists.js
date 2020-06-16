@@ -1,5 +1,5 @@
 // FOR TODOLISTS
-const { firedb } = require('./admin')
+const { firedb } = require('../util/admin')
 
 
 // TO ADD NEW TODOLIST
