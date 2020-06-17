@@ -9,9 +9,6 @@ exports.postNewUser = (request, response) => {
     var email = request.body.email;
     var password = request.body.pass;
     var token, uid;
-    console.log("POST NEW USER");
-    console.log("email: " + email);
-    console.log("password: " + password);
 
     firebase.auth()
         .createUserWithEmailAndPassword(email, password)
