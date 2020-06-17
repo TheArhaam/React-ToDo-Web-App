@@ -24,6 +24,8 @@ const Login = ({ history }) => {
                 await axios.post('/user/existing', user)
                     .then(async (response) => {
                         console.log(response);
+                        localStorage.setItem('AuthToken', response.data.token);
+                        localStorage.setItem('userID', response.data.uid)
                         // LOGGING IN TO UPDATE currentUser
                         await fireb
                             .auth()

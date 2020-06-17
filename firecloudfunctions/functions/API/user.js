@@ -30,7 +30,7 @@ exports.postNewUser = (request, response) => {
                 .catch((err) => { response.send('Error: ' + err) });
         })
         .then(() => {
-            return response.json({ token });
+            return response.json({ token,uid });
         })
         .catch((err) => {
             if (err.code === 'auth/email-already-in-use') {

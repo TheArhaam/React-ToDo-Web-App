@@ -25,6 +25,8 @@ const Register = ({ history }) => {
             await axios.post('/user/new', newUser)
                 .then((response) => {
                     console.log(response);
+                    localStorage.setItem('AuthToken', response.data.token);
+                    localStorage.setItem('userID', response.data.uid)
                     // LOGGING IN AS NEW USER TO UPDATE currentUser
                     fireb
                         .auth()
