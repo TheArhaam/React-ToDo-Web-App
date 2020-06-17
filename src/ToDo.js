@@ -1,18 +1,21 @@
 // CONTAINS THE IMPLEMENTATION ToDo COMPONENT
 
 import React, { Component } from 'react'
+import axios from 'axios'
 
 class ToDo extends Component {
 
     constructor(props) {
         super(props);
+        console.log(`DONE ${props.text}: `+props.done)
         this.state = {
-            doneStyle: (props.done) ? { 'text-decoration': 'line-through' } : {},
-            checkedVal: (props.done) ? true : false,
+            doneStyle: (props.done=='true') ? { 'text-decoration': 'line-through' } : {},
+            checkedVal: (props.done=='true') ? true : false,
         }
+        this.handleCheckChange = this.handleCheckChange.bind(this);
     }
 
-    handleCheckChange = (e) => {
+    handleCheckChange = async (e) => {
         if (this.state.checkedVal === true) {
             this.setState({
                 doneStyle: {},
@@ -25,6 +28,25 @@ class ToDo extends Component {
                 checkedVal: !this.state.checkedVal
             });
         }
+
+        const authToken = localStorage.getItem('AuthToken');
+        const uid = localStorage.getItem('userID');
+
+        const toDo = {
+            uid: uid,
+            listid: this.props.listid,
+            todoid: this.props.id,
+            done: `${!this.state.checkedVal}`
+        }
+
+        axios.defaults.headers.common = { Authorization: `Bearer ${authToken}` };
+        await axios.post('/todos/done', toDo)
+            .then((response) => {
+                alert(response.data)
+            })
+            .catch((err) => {
+                console.log(err);
+            })
     }
 
     render() {

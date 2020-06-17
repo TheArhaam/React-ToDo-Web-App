@@ -47,6 +47,7 @@ exports.getToDos = (request, response) => {
                 todos.push({
                     id: element.key,
                     text: element.val().text,
+                    done: element.val().done
                 })
             });
             return response.json(todos);
@@ -96,4 +97,26 @@ exports.deleteToDo = (request, response) => {
         .catch((err) => { response.send('Error: ' + err) });
 
     response.send('ToDo Deleted');
+}
+
+// TO CHANGE THE VALUE OF DONE
+exports.postToDoDone = (request, response) => {
+    var uid = request.body.uid;
+    var listid = request.body.listid;
+    var todoid = request.body.todoid;
+    var done = request.body.done;
+
+    firedb.ref()
+        .child('Users')
+        .child(uid)
+        .child('todolists')
+        .child(listid)
+        .child('todos')
+        .child(todoid)
+        .child('done')
+        .set(done)
+        .catch((err) => { response.send('Error: ' + err) });
+
+    response.send('ToDo Done Updated');
+
 }

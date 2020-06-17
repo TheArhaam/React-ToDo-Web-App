@@ -67,8 +67,9 @@ class ToDoPage extends Component {
                 <h2>{this.props.match.params.listid} {this.props.location.listname}</h2>
                 {
                     this.state.todos.map((todo) => {
+                        console.log('DONE: '+todo.done)
                         return (
-                            <ToDo id={todo.id} text={todo.text} done={todo.done} />
+                            <ToDo listid={this.props.match.params.listid} id={todo.id} text={todo.text} done={todo.done} />
                         );
                     })
                 }
