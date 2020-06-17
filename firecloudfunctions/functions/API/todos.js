@@ -5,11 +5,11 @@ const { firedb } = require('../util/admin')
 exports.postToDo = (request, response) => {
     var uid = request.body.uid;
     var listid = request.body.listid;
-    var todoid = request.body.todoid;
+    // var todoid = request.body.todoid;
     var text = request.body.text;
     var addedTime = new Date().toISOString();
 
-    console.log(request.user.username);
+    // console.log(request.user.username);
 
     firedb.ref()
         .child('Users')
@@ -17,8 +17,9 @@ exports.postToDo = (request, response) => {
         .child('todolists')
         .child(listid)
         .child('todos')
-        .child(todoid)
-        .set({ text: text, addedTime: addedTime, done: 'false' })
+        // .child(todoid)
+        // .set({ text: text, addedTime: addedTime, done: 'false' })
+        .push({ text: text, addedTime: addedTime, done: 'false' })
         .catch((err) => { response.send('Error: ' + err) });
 
     response.send('ToDo added');
@@ -40,9 +41,9 @@ exports.getToDos = (request, response) => {
         .then((snapshot) => {
             todos = []
             snapshot.forEach((element) => {
-                console.log('element key' + element.key);
-                console.log('element name' + element.val().name);
-                console.log('element addedTime' + element.val().addedTime);
+                // console.log('element key' + element.key);
+                // console.log('element name' + element.val().name);
+                // console.log('element addedTime' + element.val().addedTime);
                 todos.push({
                     id: element.key,
                     text: element.val().text,
@@ -83,7 +84,7 @@ exports.deleteToDo = (request, response) => {
     var listid = request.body.listid;
     var todoid = request.body.todoid;
 
-    
+
     firedb.ref()
         .child('Users')
         .child(uid)

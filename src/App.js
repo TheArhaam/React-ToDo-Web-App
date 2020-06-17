@@ -8,6 +8,9 @@ import { AuthProvider } from './Auth';
 import PrivateRoute from './PrivateRoute';
 import ToDoPage from './ToDoPage';
 
+// TO-DO:
+// -CONVERT ToDoList & ToDo TO CLASS COMPONENTS
+// -IMPLEMENT EDIT
 
 class App extends Component {
   render() {

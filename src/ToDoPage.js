@@ -2,6 +2,7 @@
 
 import React, { Component } from 'react'
 import ToDo from './ToDo';
+import axios from 'axios'
 
 class ToDoPage extends Component {
 
@@ -10,17 +11,53 @@ class ToDoPage extends Component {
         this.state = {
             todos: []
         }
-        this.addNewToDo = this.addNewToDo.bind(this)
+        this.addNewToDo = this.addNewToDo.bind(this);
+        this.fetchToDos = this.fetchToDos.bind(this);
+        this.fetchToDos();
     }
 
-    addNewToDo = (e) => {
+    // TO FETCH ALL TODOS IN THE TODOLIST
+    fetchToDos = async () => {
+
+        const authToken = localStorage.getItem('AuthToken');
+        const uid = localStorage.getItem('userID');
+
+        axios.defaults.headers.common = { Authorization: `Bearer ${authToken}` };
+        await axios.get('/todos/', { params: { uid: uid, listid: this.props.match.params.listid } })    
+            .then((response) => {
+                console.log(response.data)
+                this.setState({
+                    todos: response.data
+                });
+            })
+            .catch((err) => {
+                console.log(err);
+            })
+    }
+
+    // TO ADD A NEW TODO THE TODOLIST
+    addNewToDo = async (e) => {
         e.preventDefault(); //PREVENTING BROWSER FROM REFRESHING THE PAGE AND LOSING DATA
-        const toDoText = e.target.elements.ToDoText.value;
-        const oldList = this.state.todos;
-        oldList.push({ id: oldList.length + 1, text: toDoText })
-        this.setState({
-            todolists: oldList
-        });
+
+        const authToken = localStorage.getItem('AuthToken');
+        const uid = localStorage.getItem('userID');
+
+        const newToDo = {
+            uid: uid,
+            listid: this.props.match.params.listid,
+            text: e.target.elements.ToDoText.value
+        }
+
+        axios.defaults.headers.common = { Authorization: `Bearer ${authToken}` };
+        await axios.post('/todos/', newToDo)
+            .then((response) => {
+                alert(response.data)
+                window.location.reload();
+            })
+            .catch((err) => {
+                console.log(err);
+            })
+
     }
 
     render() {
