@@ -8,7 +8,10 @@ const ToDoList = (props) => {
         <div>
             <Link to={{ pathname: "/ToDoPage/" + props.id, listname: props.name }} property={props.id}>
                 <div>
-                    <h3>{props.id} {props.name}</h3>
+                    <h3>
+                        {/* {props.id} */}
+                        {props.name}
+                    </h3>
                 </div>
             </Link>
         </div>

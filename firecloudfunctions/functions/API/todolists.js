@@ -5,7 +5,7 @@ const { firedb } = require('../util/admin')
 // TO ADD NEW TODOLIST
 exports.postToDoList = (request, response) => {
     var uid = request.body.uid;
-    var id = request.body.id;
+    // var id = request.body.id;
     var name = request.body.name;
     var addedTime = new Date().toISOString();
 
@@ -13,8 +13,8 @@ exports.postToDoList = (request, response) => {
         .child('Users')
         .child(uid)
         .child('todolists')
-        .child(id)
-        .set({ name: name, addedTime: addedTime ,todos: 'null'})
+        // .child(id)
+        .push({ name: name, addedTime: addedTime ,todos: 'null'})
         .catch((err) => { response.send('Error: ' + err) });
 
     response.send('ToDoList added');

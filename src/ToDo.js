@@ -33,7 +33,8 @@ class ToDo extends Component {
                 <input type="checkbox" defaultChecked={this.state.checkedVal} id={this.props.id} name={this.props.id} onChange={this.handleCheckChange} />
                 <label htmlFor={this.props.id}>
                     <div style={this.state.doneStyle}>
-                        {this.props.id} {this.props.text}
+                        {this.props.id} 
+                        {this.props.text}
                     </div>
                 </label>
             </div>

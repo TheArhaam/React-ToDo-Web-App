@@ -5,7 +5,6 @@ import React, { Component } from 'react'
 import ToDoList from './ToDoList'
 import fireb from './FirebaseConfig'
 import axios from 'axios'
-// import { response } from 'express';
 
 class Feed extends Component {
 
@@ -19,10 +18,11 @@ class Feed extends Component {
         this.fetchToDoLists();
     }
 
+    // TO FETCH ALL TODOLISTS
     fetchToDoLists = async () => {
         const authToken = localStorage.getItem('AuthToken');
         const uid = localStorage.getItem('userID');
-        
+
         axios.defaults.headers.common = { Authorization: `Bearer ${authToken}` };
         await axios.get('/todolists/', { params: { uid: `${uid}` } })
             .then((response) => {
@@ -35,16 +35,25 @@ class Feed extends Component {
             })
     }
 
-    addNewList = (e) => {
+    // TO ADD A NEW TODOLIST
+    addNewList = async (e) => {
         e.preventDefault(); //PREVENTING BROWSER FROM REFRESHING THE PAGE AND LOSING DATA
 
-        // const listName = e.target.elements.ListName.value;
-        // const oldList = this.state.todolists;
-        // oldList.push({ id: oldList.length + 1, name: listName })
-
-        this.setState({
-            todolists: oldList
-        });
+        const authToken = localStorage.getItem('AuthToken');
+        const uid = localStorage.getItem('userID');
+        const newToDoList = {
+            uid: uid,
+            name: e.target.elements.ListName.value
+        }
+        axios.defaults.headers.common = { Authorization: `Bearer ${authToken}` };
+        await axios.post('/todolists/', newToDoList)
+            .then((response) => {
+                alert(response.data)
+                window.location.reload();
+            })
+            .catch((err) => {
+                console.log(err);
+            })
     }
 
     render() {
