@@ -5,6 +5,7 @@ import { withRouter, Redirect } from "react-router"
 import { Link } from "react-router-dom"
 import fireb from './FirebaseConfig'
 import { AuthContext } from "./Auth.js"
+import axios from 'axios'
 import './App.css'
 
 
@@ -13,11 +14,23 @@ const Login = ({ history }) => {
         async event => {
             event.preventDefault();
             const { email, password } = event.target.elements;
+            const user = {
+                email: email.value,
+                pass: password.value
+            }
             try {
-                await fireb
-                    .auth()
-                    .signInWithEmailAndPassword(email.value, password.value);
-                history.push("/");
+
+                // LOGGING IN
+                await axios.post('/user/existing', user)
+                    .then(async (response) => {
+                        console.log(response);
+                        // LOGGING IN TO UPDATE currentUser
+                        await fireb
+                            .auth()
+                            .signInWithEmailAndPassword(email.value, password.value);
+                        history.push("/");
+                    })
+
             } catch (error) {
                 alert(error);
             }

@@ -4,7 +4,7 @@ import React, { useCallback } from "react";
 import { withRouter } from "react-router";
 import fireb from './FirebaseConfig'
 import axios from 'axios'
-// axios.defaults.baseURL = 'https://us-central1-todo-5cda6.cloudfunctions.net/api';
+axios.defaults.baseURL = 'https://us-central1-todo-5cda6.cloudfunctions.net/api';
 
 const Register = ({ history }) => {
 
@@ -22,7 +22,7 @@ const Register = ({ history }) => {
             // history.push("/");
 
             // CREATING NEW USER 
-            await axios.post('https://us-central1-todo-5cda6.cloudfunctions.net/api/user/new', newUser)
+            await axios.post('/user/new', newUser)
                 .then((response) => {
                     console.log(response);
                     // LOGGING IN AS NEW USER TO UPDATE currentUser
