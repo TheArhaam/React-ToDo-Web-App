@@ -23,9 +23,8 @@ class ToDoPage extends Component {
         const uid = localStorage.getItem('userID');
 
         axios.defaults.headers.common = { Authorization: `Bearer ${authToken}` };
-        await axios.get('/todos/', { params: { uid: uid, listid: this.props.match.params.listid } })    
+        await axios.get('/todos/', { params: { uid: uid, listid: this.props.location.state.listid } })
             .then((response) => {
-                console.log(response.data)
                 this.setState({
                     todos: response.data
                 });
@@ -44,7 +43,7 @@ class ToDoPage extends Component {
 
         const newToDo = {
             uid: uid,
-            listid: this.props.match.params.listid,
+            listid: this.props.location.state.listid,
             text: e.target.elements.ToDoText.value
         }
 
@@ -52,7 +51,8 @@ class ToDoPage extends Component {
         await axios.post('/todos/', newToDo)
             .then((response) => {
                 alert(response.data)
-                window.location.reload();
+                // window.location.reload();
+                this.fetchToDos()
             })
             .catch((err) => {
                 console.log(err);
@@ -64,10 +64,12 @@ class ToDoPage extends Component {
         return (
             <div>
 
-                <h2>{this.props.match.params.listid} {this.props.location.listname}</h2>
+                <h2>
+                    {/* {this.props.location.state.listid} */}
+                    {this.props.location.state.listname}
+                </h2>
                 {
                     this.state.todos.map((todo) => {
-                        console.log('DONE: '+todo.done)
                         return (
                             <ToDo listid={this.props.match.params.listid} id={todo.id} text={todo.text} done={todo.done} />
                         );

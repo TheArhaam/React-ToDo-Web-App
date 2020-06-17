@@ -6,6 +6,7 @@ import axios from 'axios'
 
 const ToDoList = (props) => {
 
+    // TO DELETE TODOLIST
     const handleDelete = async (e) => {
         console.log('handleDelete');
         const authToken = localStorage.getItem('AuthToken');
@@ -36,7 +37,7 @@ const ToDoList = (props) => {
                     <table>
                         <tr>
                             <td>
-                                <Link to={{ pathname: "/ToDoPage/" + props.id, listname: props.name }} property={props.id}>
+                                <Link to={{ pathname: "/ToDoPage/" + props.id, state: { listid: props.id, listname: props.name } }}>
                                     <div>
                                         <h3>
                                             {props.name}

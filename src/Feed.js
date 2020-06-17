@@ -49,7 +49,8 @@ class Feed extends Component {
         await axios.post('/todolists/', newToDoList)
             .then((response) => {
                 alert(response.data)
-                window.location.reload();
+                this.fetchToDoLists()
+                // window.location.reload();
             })
             .catch((err) => {
                 console.log(err);
