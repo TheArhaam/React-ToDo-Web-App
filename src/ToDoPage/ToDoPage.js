@@ -3,6 +3,7 @@
 import React, { Component } from 'react'
 import ToDo from './ToDo';
 import axios from 'axios'
+import './ToDoPage.css'
 
 class ToDoPage extends Component {
 
@@ -62,23 +63,25 @@ class ToDoPage extends Component {
 
     render() {
         return (
-            <div>
-
-                <h2>
-                    {/* {this.props.location.state.listid} */}
-                    {this.props.location.state.listname}
-                </h2>
-                {
-                    this.state.todos.map((todo) => {
-                        return (
-                            <ToDo listid={this.props.match.params.listid} id={todo.id} text={todo.text} done={todo.done} />
-                        );
-                    })
-                }
+            <div className="ToDoPageFULL">
+                <p className="Marvel">MARVEL</p><p className="ToDoPageTitle">&nbsp;TO-DOS</p><br></br>
+                <div className="ToDoFULL">
+                    <h2>
+                        {/* {this.props.location.state.listid} */}
+                        {this.props.location.state.listname}
+                    </h2>
+                    {
+                        this.state.todos.map((todo) => {
+                            return (
+                                <ToDo listid={this.props.match.params.listid} id={todo.id} text={todo.text} done={todo.done} />
+                            );
+                        })
+                    }
+                </div>
                 {/* For adding new To-Do */}
                 <form onSubmit={this.addNewToDo}>
-                    <input type="text" name="ToDoText" id="ToDoText" placeholder="Enter new To-Do..." />
-                    <button type="submit">New To-Do</button>
+                    <input type="text" name="ToDoText" id="ToDoText" placeholder="Enter new To-Do..." className="toDoInputField"/>
+                    <button type="submit" className="toDoBttn">New To-Do</button>
                 </form>
             </div>
         );

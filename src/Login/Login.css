@@ -2,6 +2,7 @@
     height: 100vh;
     background-image: url('../assets/THOR-Shadow.png');
     background-size: cover;
+    background-attachment: fixed;
 }
 
 .Login {

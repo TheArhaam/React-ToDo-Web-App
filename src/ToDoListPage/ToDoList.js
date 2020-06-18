@@ -3,6 +3,7 @@
 import React from 'react'
 import { Link } from "react-router-dom"
 import axios from 'axios'
+import './ToDoList.css'
 
 const ToDoList = (props) => {
 
@@ -31,12 +32,12 @@ const ToDoList = (props) => {
 
 
     return (
-        <div>
-            <div>
+        <div className="ToDoListFULL">
+            <div className="ToDoListIN">
                 <center>
-                    <table>
+                    <table className="ToDoListTable">
                         <tr>
-                            <td>
+                            <td className="ToDoListTable td">
                                 <Link to={{ pathname: "/ToDoPage/" + props.id, state: { listid: props.id, listname: props.name } }}>
                                     <div>
                                         <h3>
@@ -45,11 +46,11 @@ const ToDoList = (props) => {
                                     </div>
                                 </Link>
                             </td>
-                            <td>
-                                <button name="deleteBttn" onClick={handleDelete}>Delete</button>
+                            <td className="ToDoListTable td">
+                                <button name="deleteBttn" onClick={handleDelete} class="toDoListBttn"><i class="material-icons" style={{ "font-size": "20px", "color": "rgb(156, 156, 3)" }}>delete</i></button>
                             </td>
-                            <td>
-                                <button name="editBttn">Edit</button>
+                            <td className="ToDoListTable td">
+                                <button name="editBttn" className="toDoListBttn"><i class="material-icons" style={{ "font-size": "20px", "color": "rgb(156, 156, 3)" }}>mode_edit</i></button>
                             </td>
                         </tr>
                     </table>

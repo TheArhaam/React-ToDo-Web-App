@@ -1,0 +1,82 @@
+.ToDoListFULL {
+    /* display: inline-block; */
+    /* width: 100%; */
+    /* background-color: gray; */
+}
+
+.ToDoListIN {
+    border: rgb(156, 156, 3) solid;
+    background-color: rgb(255, 255, 132);
+    box-shadow: 10px 10px rgb(230, 228, 228);
+    margin: 10px;
+    width: 50vh;
+    align-items: center;
+    justify-content: center;
+    display: inline-block; 
+
+}
+
+/* FONTS */
+  @font-face {
+    font-family: 'MARVEL';
+    src: url('../assets/MarvelRegular.ttf')
+}
+
+@font-face {
+    font-family: 'IRONMAN';
+    src: url('../assets/IronManOfWar.ttf');
+}
+
+@font-face {
+    font-family: "MainFont";
+    src: url('../assets/CaptainMarvel.ttf');
+  }
+
+.tdName {
+    text-align: center;
+}
+
+/* TODOLIST TABLE */
+.ToDoListTable{
+    /* display: inline-block; */
+    text-align: center;
+    text-overflow: clip;
+    width: 100%;
+    /* border: gray 1px solid; */
+}
+.ToDoListTable.tdname{
+    /* display: inline-block; */
+    text-align: center;
+    text-overflow: clip;
+    width: 100%;
+    /* border: gray 1px solid; */
+}
+.ToDoListTable.td {
+    /* display: inline-block; */
+    text-align: center;
+    word-wrap: break-word;
+    max-width: 20vh;
+    text-overflow: clip;
+    width: 100%;
+    /* border: gray 1px solid; */
+}
+
+/* BUTTONS */
+.toDoListBttn {
+    font-family: 'MainFont';
+    padding-right: 10px;
+    padding-left: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    /* margin: 10px; */
+    border: rgb(156, 156, 3) solid;
+    margin-right: 5px;
+    background-color: rgb(253, 253, 214);
+    /* border: black solid; */
+}
+.toDoListBttn:hover {
+    background-color: rgb(248, 248, 89);
+}
+.toDoListBttn:active {
+    background-color: rgb(172, 172, 51);
+}

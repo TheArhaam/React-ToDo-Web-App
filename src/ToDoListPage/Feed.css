@@ -1,31 +1,19 @@
-.RegisterFULL {
-height: 100vh;
-  background-image: url('../assets/THOR-Shadow.png');
-  background-size: cover;
-  background-attachment: fixed;
+.FeedFULL {
+    height: 100vh;
+    background-image: url('../assets/IRONMAN.png');
+    background-size: cover;
+    background-attachment: fixed;
 }
 
-.Register {
-    /* display: 'flex'; */
-    align-items: center;
-    justify-content: center;
-    display: inline-block; 
-    margin: 30px;
-    padding: 20px;
-    border: rgb(180, 180, 2) solid;
-    background-color: rgb(255, 255, 132);
-    box-shadow: 10px 10px rgb(230, 228, 228);
-  }
-
-  
-@font-face {
+/* FONTS */
+  @font-face {
     font-family: 'MARVEL';
     src: url('../assets/MarvelRegular.ttf')
 }
 
 @font-face {
-    font-family: 'THOR';
-    src: url('../assets/ThorRagnarok.ttf');
+    font-family: 'IRONMAN';
+    src: url('../assets/IronManOfWar.ttf');
 }
 
 @font-face {
@@ -33,22 +21,17 @@ height: 100vh;
     src: url('../assets/CaptainMarvel.ttf');
   }
 
-.Title {
+  /* TO-DO LIST TEXT */
+  .FeedTitle {
     font-size: 50px;
     font-weight: bolder;
     display: inline-block;
     align-items: center;
     justify-content: center;
-    font-family: 'THOR';
+    font-family: 'IRONMAN';
 }
 
-.RegTitle {
-    font-size: 40px;
-    /* font-family: 'THOR';  */
-    font-weight: bolder;
-}
-
-
+/* FOR MARVEL LOGO */
 .Marvel {
     font-size: 60px;
     font-family: 'MARVEL';
@@ -62,11 +45,10 @@ height: 100vh;
     padding-right: 10px;
     padding-left: 10px;
     padding-top: 10px;
-
 }
 
-/* SUBMIt BUTTON */
-.submitBttn {
+/* BUTTONS */
+.feedBttn {
     font-family: 'MainFont';
     padding-right: 10px;
     padding-left: 10px;
@@ -76,20 +58,21 @@ height: 100vh;
     background-color: rgb(253, 253, 214);
     border: black solid;
 }
-.submitBttn:hover {
+.feedBttn:hover {
     background-color: rgb(248, 248, 89);
 }
-.submitBttn:active {
+.feedBttn:active {
     background-color: rgb(172, 172, 51);
 }
 
 /* INPUT FIELDS */
-.inputField {
+.toDoListInputField {
+    width: 30vh;
     border: rgb(156, 156, 3) solid;
     background-color: rgb(253, 253, 214);
     padding: 5px;
     margin: 2px;
 }
-.inputField:focus {
+.toDoListInputField:focus {
     border: rgb(172, 172, 51) solid;
 }

@@ -1,0 +1,75 @@
+.ToDoPageFULL {
+    height: 100vh;
+    background-image: url('../assets/SPIDERMAN.png');
+    /* background-color: gray; */
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+
+/* FONTS */
+@font-face {
+    font-family: 'MARVEL';
+    src: url('../assets/MarvelRegular.ttf')
+}
+
+@font-face {
+    font-family: 'SPIDERMAN';
+    src: url('../assets/MightySpidey.ttf');
+}
+
+@font-face {
+    font-family: "MainFont";
+    src: url('../assets/CaptainMarvel.ttf');
+  }
+
+/* TO-DO TEXT */
+.ToDoPageTitle {
+    font-size: 50px;
+    font-weight: bolder;
+    display: inline-block;
+    align-items: center;
+    justify-content: center;
+    font-family: 'SPIDERMAN';
+}
+
+.ToDoFULL {
+    border: rgb(156, 156, 3) solid;
+    background-color: rgb(255, 255, 132);
+    box-shadow: 10px 10px rgb(230, 228, 228);
+    margin: 10px;
+    width: 75vh;
+    align-items: center;
+    justify-content: center;
+    display: inline-block; 
+}
+
+/* INPUT FIELD */
+.toDoInputField {
+    width: 30vh;
+    border: rgb(156, 156, 3) solid;
+    background-color: rgb(253, 253, 214);
+    padding: 5px;
+    margin: 2px;
+}
+.toDoInputField:focus {
+    border: rgb(172, 172, 51) solid;
+}
+
+/* BUTTONS */
+.toDoBttn {
+    font-family: 'MainFont';
+    padding-right: 10px;
+    padding-left: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin: 10px;
+    background-color: rgb(253, 253, 214);
+    border: black solid;
+}
+.toDoBttn:hover {
+    background-color: rgb(248, 248, 89);
+}
+.toDoBttn:active {
+    background-color: rgb(172, 172, 51);
+}

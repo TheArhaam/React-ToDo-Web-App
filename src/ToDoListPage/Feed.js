@@ -5,6 +5,7 @@ import React, { Component } from 'react'
 import ToDoList from './ToDoList'
 import fireb from '../FirebaseConfig'
 import axios from 'axios'
+import './Feed.css'
 
 class Feed extends Component {
 
@@ -59,10 +60,8 @@ class Feed extends Component {
 
     render() {
         return (
-            <div>
-                <h1>TO-DO LIST</h1>
-                {/* FOR SIGNING OUT */}
-                <button onClick={() => { fireb.auth().signOut() }}>Sign Out</button>
+            <div className="FeedFULL">
+                <p className="Marvel">MARVEL</p><p className="FeedTitle">&nbsp;TO-DO LISTS</p><br></br>
                 {/* TO DISPLAY THE todolists */}
                 {
                     this.state.todolists.map((todolist) => {
@@ -73,9 +72,11 @@ class Feed extends Component {
                 }
                 {/* For adding new To-Do List */}
                 <form onSubmit={this.addNewList}>
-                    <input type="text" name="ListName" id="ListName" placeholder="Enter new list name..." />
-                    <button type="submit">New To-Do List</button>
+                    <input type="text" name="ListName" id="ListName" placeholder="Enter new list name..." className="toDoListInputField"/>
+                    <button type="submit" className="feedBttn"> + New List</button>
                 </form>
+                {/* FOR SIGNING OUT */}
+                <button onClick={() => { fireb.auth().signOut() }} className="feedBttn">Sign Out</button>
             </div>
         );
     }
