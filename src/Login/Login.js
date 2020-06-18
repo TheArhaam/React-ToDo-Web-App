@@ -3,10 +3,11 @@
 import React, { useCallback, useContext } from 'react'
 import { withRouter, Redirect } from "react-router"
 import { Link } from "react-router-dom"
-import fireb from './FirebaseConfig'
-import { AuthContext } from "./Auth.js"
+import fireb from '../FirebaseConfig'
+import { AuthContext } from "../Auth.js"
 import axios from 'axios'
-import './App.css'
+import '../App.css'
+import './Login.css'
 
 
 const Login = ({ history }) => {

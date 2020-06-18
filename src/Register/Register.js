@@ -2,7 +2,7 @@
 
 import React, { useCallback } from "react";
 import { withRouter } from "react-router";
-import fireb from './FirebaseConfig'
+import fireb from '../FirebaseConfig'
 import axios from 'axios'
 axios.defaults.baseURL = 'https://us-central1-todo-5cda6.cloudfunctions.net/api';
 

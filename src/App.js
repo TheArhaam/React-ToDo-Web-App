@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
 import './App.css'
-import Login from './Login';
-import Register from './Register'
-import Feed from './Feed'
+import Login from './Login/Login';
+import Register from './Register/Register'
+import Feed from './ToDoListPage/Feed'
 import { BrowserRouter as Router, Route } from "react-router-dom"
 import { AuthProvider } from './Auth';
 import PrivateRoute from './PrivateRoute';
-import ToDoPage from './ToDoPage';
+import ToDoPage from './ToDoPage/ToDoPage';
 
 // TO-DO:
 // -CONVERT ToDoList & ToDo TO CLASS COMPONENTS

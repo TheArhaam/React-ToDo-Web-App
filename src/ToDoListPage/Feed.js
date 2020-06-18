@@ -3,7 +3,7 @@
 
 import React, { Component } from 'react'
 import ToDoList from './ToDoList'
-import fireb from './FirebaseConfig'
+import fireb from '../FirebaseConfig'
 import axios from 'axios'
 
 class Feed extends Component {
