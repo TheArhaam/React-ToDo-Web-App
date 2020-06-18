@@ -42,6 +42,7 @@
     align-items: center;
     justify-content: center;
     display: inline-block; 
+    padding-bottom: 10px;
 }
 
 /* INPUT FIELD */
@@ -57,7 +58,7 @@
 }
 
 /* BUTTONS */
-.toDoBttn {
+.newBttn {
     font-family: 'MainFont';
     padding-right: 10px;
     padding-left: 10px;
@@ -67,9 +68,9 @@
     background-color: rgb(253, 253, 214);
     border: black solid;
 }
-.toDoBttn:hover {
+.newBttn:hover {
     background-color: rgb(248, 248, 89);
 }
-.toDoBttn:active {
+.newBttn:active {
     background-color: rgb(172, 172, 51);
 }

@@ -1,0 +1,99 @@
+
+/* FONTS */
+@font-face {
+    font-family: 'MARVEL';
+    src: url('../assets/MarvelRegular.ttf')
+}
+
+@font-face {
+    font-family: 'IRONMAN';
+    src: url('../assets/IronManOfWar.ttf');
+}
+
+@font-face {
+    font-family: "MainFont";
+    src: url('../assets/CaptainMarvel.ttf');
+  }
+
+/* TODOLIST TABLE */
+.ToDoTable{
+    text-align: center;
+    text-overflow: clip;
+    width: 100%;
+    /* border: gray 1px solid;  */
+}
+.ToDoTable.tdcheck{
+    text-align: right;
+    vertical-align: top;
+    text-overflow: clip;
+    /* border: gray 1px solid; */
+}
+.ToDoTable.tdtext{
+    align-content: flex-start;
+    vertical-align: top;
+    height: 5vh;
+    display: inline-block;
+    text-align: left;
+    text-overflow: clip;
+    /* border: gray 1px solid; */
+}
+.ToDoTable.td {
+    vertical-align: top;
+    text-align: center;
+    word-wrap: break-word;
+    text-overflow: clip;
+    /* border: gray 1px solid; */
+}
+
+/* TODO EDIT FIELD */
+.toDoEditField {
+    /* word-wrap: break-word; */
+    resize: none;
+    box-sizing: content-box;
+    width: 55vh;
+    font-family: 'MainFont';
+}
+.toDoEditField:disabled {
+    background-color: rgb(255, 255, 132);
+    border: none;
+    margin: 5px;
+}
+.toDoEditField:enabled {
+    border: rgb(156, 156, 3) solid;
+    padding: 5px;
+    background-color: rgb(253, 253, 214);
+}
+.toDoEditField:focus {
+    border: rgb(172, 172, 51) solid;
+}
+
+/* TODO BUTTONS */
+
+.toDoBttn {
+    font-family: 'MainFont';
+    padding-right: 10px;
+    padding-left: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    /* margin: 10px; */
+    border: rgb(156, 156, 3) solid;
+    margin-right: 5px;
+    background-color: rgb(253, 253, 214);
+}
+.toDoBttn:hover {
+    background-color: rgb(248, 248, 89);
+    border: rgb(156, 156, 3) solid;
+}
+.toDoBttn:active {
+    background-color: rgb(172, 172, 51);
+    border: rgb(156, 156, 3) solid;
+}
+
+/* CHECKBOX */
+.doneCheck {
+    height: 25px;
+    width: 25px;
+  }
+
+
+  

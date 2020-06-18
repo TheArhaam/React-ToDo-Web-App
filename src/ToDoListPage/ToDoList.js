@@ -49,9 +49,9 @@ const ToDoList = (props) => {
                             <td className="ToDoListTable td">
                                 <button name="deleteBttn" onClick={handleDelete} class="toDoListBttn"><i class="material-icons" style={{ "font-size": "20px", "color": "rgb(156, 156, 3)" }}>delete</i></button>
                             </td>
-                            <td className="ToDoListTable td">
+                            {/* <td className="ToDoListTable td">
                                 <button name="editBttn" className="toDoListBttn"><i class="material-icons" style={{ "font-size": "20px", "color": "rgb(156, 156, 3)" }}>mode_edit</i></button>
-                            </td>
+                            </td> */}
                         </tr>
                     </table>
                 </center>

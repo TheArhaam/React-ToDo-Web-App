@@ -2,6 +2,7 @@
 
 import React, { Component } from 'react'
 import axios from 'axios'
+import './ToDo.css'
 
 class ToDo extends Component {
 
@@ -120,22 +121,25 @@ class ToDo extends Component {
     render() {
         return (
             <div>
-                <input type="checkbox" defaultChecked={this.state.checkedVal} id={this.props.id} name={this.props.id} onChange={this.handleCheckChange} />
                 <div style={this.state.doneStyle}>
                     <center>
-                        <table>
+                        <table className="ToDoTable">
                             <tr>
-                                <label htmlFor={this.props.id}>
-                                    <td>
-                                        <input type="text" value={this.state.text} disabled={this.state.editDisabled} onChange={this.handleTextChange} style={this.state.doneStyle} />
+                                <td className="ToDoTable tdcheck">
+                                    <input className="doneCheck" type="checkbox" defaultChecked={this.state.checkedVal} id={this.props.id} name={this.props.id} onChange={this.handleCheckChange} />
+                                    <span className="checkmark"></span>
+                                </td>
+                                <label htmlFor={this.props.id} >
+                                    <td className="ToDoTable tdtext">
+                                        <textarea type="text" className="toDoEditField" value={this.state.text} disabled={this.state.editDisabled} onChange={this.handleTextChange} style={this.state.doneStyle}/>
 
                                     </td>
                                 </label>
-                                <td>
-                                    <button onClick={this.handleDelete}>DELETE</button>
+                                <td className="ToDoTable td">
+                                    <button onClick={this.handleDelete} className="toDoBttn"><i class="material-icons" style={{ "font-size": "20px", "color": "rgb(156, 156, 3)" }}>delete</i></button>
                                 </td>
-                                <td>
-                                    <button onClick={this.handleEdit}>EDIT</button>
+                                <td className="ToDoTable td">
+                                    <button onClick={this.handleEdit} className="toDoBttn"><i class="material-icons" style={{ "font-size": "20px", "color": "rgb(156, 156, 3)" }}>mode_edit</i></button>
                                 </td>
                             </tr>
                         </table>

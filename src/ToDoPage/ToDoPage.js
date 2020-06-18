@@ -81,7 +81,7 @@ class ToDoPage extends Component {
                 {/* For adding new To-Do */}
                 <form onSubmit={this.addNewToDo}>
                     <input type="text" name="ToDoText" id="ToDoText" placeholder="Enter new To-Do..." className="toDoInputField"/>
-                    <button type="submit" className="toDoBttn">New To-Do</button>
+                    <button type="submit" className="newBttn">+ New To-Do</button>
                 </form>
             </div>
         );
