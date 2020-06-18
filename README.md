@@ -18,19 +18,31 @@ ToDo Application to perform the following functions:
 </p>
 
 ---
-<p align="center">
-  1)Register
-  <br><img src="resources/Register.png">
-</p>
-<p align="center">
-   2)Login
-  <br><img src="resources/Login.png">
-</p>
-<p align="center">
-  3)ToDo Lists
-  <br><img src="resources/ToDoLists.png">
-<p>
-<p align="center">
-  4)ToDos
-  <br><img src="resources/ToDos.png">
-<p>
+<table>
+  <tr>
+    <td align="center">1)Register</td>
+  </tr>
+  <tr> 
+    <td><img src="resources/Register.png"></td>
+  </tr>
+  <tr>
+    <td align="center">2)Login</td>
+  </tr>
+  <tr> 
+    <td><img src="resources/Login.png"></td>
+  </tr>
+  <tr>
+    <td align="center">3)ToDo Lists</td>
+  </tr>
+  <tr>
+    <td><img src="resources/ToDoLists.png"></td>
+  </tr>
+  <tr>
+    <td align="center">4)ToDos</td>
+  </tr>
+  <tr>
+    <td><img src="resources/ToDos.png"></td>
+  </tr>
+</table>
+
+
