@@ -7,10 +7,6 @@ const { postToDo, getToDos, postToDoDone, editToDo, deleteToDo } = require('./AP
 const { postNewUser, postExistingUser } = require('./API/user')
 const { auth } = require('./util/auth')
 
-// RETURN JSON RESPONSES IF YOU HAVE PROBLEMS
-// WITH THE RESPONSE LATER
-// FIX THE RESPONSES
-
 // FOR USER
 app.post('/user/new', postNewUser);
 app.post('/user/existing', postExistingUser);
