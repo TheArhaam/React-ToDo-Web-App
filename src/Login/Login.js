@@ -6,8 +6,8 @@ import { Link } from "react-router-dom"
 import fireb from '../FirebaseConfig'
 import { AuthContext } from "../Auth.js"
 import axios from 'axios'
-import '../App.css'
 import './Login.css'
+import '../App.css'
 
 
 const Login = ({ history }) => {
@@ -48,26 +48,29 @@ const Login = ({ history }) => {
         return <Redirect to="/" />;
     }
     return (
-        <div className="Login">
-            <p style={{ "font-size": "30px", "fontWeight": "bolder" }}>LOGIN</p>
-            <form onSubmit={handleLogin}>
-                <table>
-                    <tr>
-                        <td>Email:</td>
-                        <td><input type="text" name="email" /></td>
-                    </tr>
-                    <tr>
-                        <td>Password:</td>
-                        <td><input type="password" name="password" /></td>
-                    </tr>
-                    <tr>
-                        <td colSpan="2" style={{ "text-align": "center" }}><input type="submit" value="LOGIN" /></td>
-                    </tr>
-                    <tr>
-                        <td colSpan="2" style={{ "text-align": "center" }}>New User? <Link to="/Register">Register now.</Link> </td>
-                    </tr>
-                </table>
-            </form>
+        <div className="LoginFULL">
+            <p className="Marvel">MARVEL</p><p className="Title">&nbsp;TO-DO</p><br></br>
+            <div className="Login">
+                <p className="LogTitle">LOGIN</p>
+                <form onSubmit={handleLogin}>
+                    <table>
+                        <tr>
+                            <td>Email:</td>
+                            <td><input type="text" name="email" className="inputField"/></td>
+                        </tr>
+                        <tr>
+                            <td>Password:</td>
+                            <td><input type="password" name="password" className="inputField"/></td>
+                        </tr>
+                        <tr>
+                            <td colSpan="2" style={{ "text-align": "center" }}><input type="submit" value="LOGIN" className="submitBttn"/></td>
+                        </tr>
+                        <tr>
+                            <td colSpan="2" style={{ "text-align": "center", "fontSize": "12px" }}>New User? <Link to="/Register">Register now.</Link> </td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
         </div>
     );
 }

@@ -1,22 +1,21 @@
-.LoginFULL {
-    height: 100vh;
-    background-image: url('../assets/THOR-Shadow.png');
-    background-size: cover;
+.RegisterFULL {
+height: 100vh;
+  background-image: url('../assets/THOR-Shadow.png');
+  background-size: cover;
 }
 
-.Login {
+.Register {
     /* display: 'flex'; */
     align-items: center;
     justify-content: center;
     display: inline-block; 
     margin: 30px;
     padding: 20px;
-    border: rgb(156, 156, 3) solid;
+    border: rgb(180, 180, 2) solid;
     background-color: rgb(255, 255, 132);
     box-shadow: 10px 10px rgb(230, 228, 228);
   }
 
-  /* FONTS */
   
 @font-face {
     font-family: 'MARVEL';
@@ -33,7 +32,6 @@
     src: url('../assets/CaptainMarvel.ttf');
   }
 
-  /* TO-DO TEXT */
 .Title {
     font-size: 50px;
     font-weight: bolder;
@@ -43,14 +41,13 @@
     font-family: 'THOR';
 }
 
-/* LOGIN TEXT */
-.LogTitle {
+.RegTitle {
     font-size: 40px;
     /* font-family: 'THOR';  */
     font-weight: bolder;
 }
 
-/* FOR MARVEL LOGO */
+
 .Marvel {
     font-size: 60px;
     font-family: 'MARVEL';
@@ -64,6 +61,7 @@
     padding-right: 10px;
     padding-left: 10px;
     padding-top: 10px;
+
 }
 
 /* SUBMIt BUTTON */
