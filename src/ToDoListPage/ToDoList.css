@@ -7,13 +7,20 @@
 .ToDoListIN {
     border: rgb(156, 156, 3) solid;
     background-color: rgb(255, 255, 132);
-    box-shadow: 10px 10px rgb(230, 228, 228);
+    box-shadow: 10px 10px rgb(134, 66, 66);
     margin: 10px;
     width: 50vh;
     align-items: center;
     justify-content: center;
     display: inline-block; 
 }
+.ToDoListIN:hover {
+    border: black solid;
+    background-color: rgb(255, 255, 132);
+    box-shadow: 10px 10px rgb(104, 54, 54);
+}
+
+
 
 /* FONTS */
   @font-face {
@@ -58,6 +65,24 @@
     text-overflow: clip;
     width: 100%;
     /* border: gray 1px solid; */
+}
+
+/* LIST NAME */
+.listName:link {
+    color: black;
+    text-decoration: none;
+}
+.listName:visited {
+    color: black;
+    text-decoration: none;
+}
+.listName:active {
+    color: black;
+    text-decoration: none;
+}
+.listName:hover {
+    color: rgb(156, 156, 3) solid;
+    text-decoration: underline;
 }
 
 /* BUTTONS */

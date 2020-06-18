@@ -37,10 +37,10 @@ const ToDoList = (props) => {
                 <center>
                     <table className="ToDoListTable">
                         <tr>
-                            <td className="ToDoListTable td">
-                                <Link to={{ pathname: "/ToDoPage/" + props.id, state: { listid: props.id, listname: props.name } }}>
+                            <td className="ToDoListTable tdname">
+                                <Link to={{ pathname: "/ToDoPage/" + props.id, state: { listid: props.id, listname: props.name } }} className="listName">
                                     <div>
-                                        <h3>
+                                        <h3 className="listName">
                                             {props.name}
                                         </h3>
                                     </div>

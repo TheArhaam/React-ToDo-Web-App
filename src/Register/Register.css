@@ -1,6 +1,7 @@
 .RegisterFULL {
 height: 100vh;
   background-image: url('../assets/THOR-Shadow.png');
+  background-color: rgb(177, 78, 78);
   background-size: cover;
   background-attachment: fixed;
 }
@@ -14,7 +15,7 @@ height: 100vh;
     padding: 20px;
     border: rgb(180, 180, 2) solid;
     background-color: rgb(255, 255, 132);
-    box-shadow: 10px 10px rgb(230, 228, 228);
+    box-shadow: 10px 10px rgb(134, 66, 66);
   }
 
   

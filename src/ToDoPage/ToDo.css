@@ -50,6 +50,7 @@
     /* word-wrap: break-word; */
     resize: none;
     box-sizing: content-box;
+    /* height: 2.5vh; */
     width: 55vh;
     font-family: 'MainFont';
 }

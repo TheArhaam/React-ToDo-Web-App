@@ -1,6 +1,7 @@
 .FeedFULL {
     height: 100vh;
     background-image: url('../assets/IRONMAN.png');
+    background-color: rgb(177, 78, 78);
     background-size: cover;
     background-attachment: fixed;
 }
@@ -68,7 +69,7 @@
 /* INPUT FIELDS */
 .toDoListInputField {
     width: 30vh;
-    border: rgb(156, 156, 3) solid;
+    border: black solid;
     background-color: rgb(253, 253, 214);
     padding: 5px;
     margin: 2px;

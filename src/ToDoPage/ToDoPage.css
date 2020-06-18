@@ -1,7 +1,7 @@
 .ToDoPageFULL {
     height: 100vh;
     background-image: url('../assets/SPIDERMAN.png');
-    /* background-color: gray; */
+    background-color: rgb(177, 78, 78);
     background-size: cover;
     background-attachment: fixed;
 }
@@ -36,7 +36,7 @@
 .ToDoFULL {
     border: rgb(156, 156, 3) solid;
     background-color: rgb(255, 255, 132);
-    box-shadow: 10px 10px rgb(230, 228, 228);
+    box-shadow: 10px 10px rgb(134, 66, 66);
     margin: 10px;
     width: 75vh;
     align-items: center;
@@ -48,7 +48,7 @@
 /* INPUT FIELD */
 .toDoInputField {
     width: 30vh;
-    border: rgb(156, 156, 3) solid;
+    border: black solid;
     background-color: rgb(253, 253, 214);
     padding: 5px;
     margin: 2px;
